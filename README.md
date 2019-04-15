@@ -4,7 +4,9 @@
 
 使用方法：
 
-> python tool.py
+```sh
+python tool.py
+```
 
 `Input-pre: ` 你要配置的输入文件的前缀；
 
@@ -17,7 +19,9 @@
 `Numbers of subtasks: ` 你要配置的 `subtask` 的数量，如果为空则默认为 $0$。
 后面每一行的格式为：
 
-> score(type): data-list
+```plain
+score(type): data-list
+```
 
 其中，`score` 为该 `subtask` 的分值，`type` 为评分方式，可选的有 `min`, `max`, `sum`, `mul`。如果没有 `(type)` 这一部分，默认为 `min`。
 
