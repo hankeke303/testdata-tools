@@ -16,7 +16,7 @@ python tool.py
 
 `Output_suf: ` 你要配置的输入文件的后缀，如果为空，则默认为 `.out`；
 
-`Numbers of subtasks: ` 你要配置的 `subtask` 的数量，如果为空则默认为 $0$。
+`Numbers of subtasks: ` 你要配置的 `subtask` 的数量，如果为空则默认为 `0`。
 后面每一行的格式为：
 
 ```plain
