@@ -49,7 +49,7 @@ if n > 0:
 			fl.write('    type: ' + 'min' + '\n')
 		
 		ls = getList(detail)
-		fl.write('    tasks: ' + str(ls) + '\n')
+		fl.write('    cases: ' + str(ls) + '\n')
 	fl.write('\n')
 
 fl.write('inputFile: \'' + input_pre + '#.' + input_suf + '\'\n')
