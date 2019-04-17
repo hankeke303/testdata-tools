@@ -13,6 +13,7 @@ def getList(s):
 	p = s.split(',')
 	ls = list()
 	for i in p:
+		i = i.replace(' ', '')
 		if '-' in i:
 			if '(' in i:
 				lleft, rright = i.split('(')
@@ -24,7 +25,7 @@ def getList(s):
 				l, r = map(int, i.split('-'))
 				ls += map(str, list(range(l, r + 1)))
 		else:
-			ls.append(str(int(i)))
+			ls.append(i)
 	return ls
 
 fl = open("data.yml", "w")
