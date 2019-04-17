@@ -1,14 +1,30 @@
 #!/usr/bin/python3
 
+lleft = ''
+
+def ssmake(s):
+	return lleft + str(s)
+
+def mkstring(s):
+	return '\'' + s + '\''
+
 def getList(s):
+	global lleft
 	p = s.split(',')
 	ls = list()
 	for i in p:
 		if '-' in i:
-			l, r = map(int, i.split('-'))
-			ls += list(range(l, r + 1))
+			if '(' in i:
+				lleft, rright = i.split('(')
+				lleft = lleft.replace('\\-', '-')
+				rright = rright[:-1]
+				l, r = map(int, rright.split('-'))
+				ls += map(ssmake, range(l, r + 1))
+			else:
+				l, r = map(int, i.split('-'))
+				ls += map(str, list(range(l, r + 1)))
 		else:
-			ls.append(int(i))
+			ls.append(str(int(i)))
 	return ls
 
 fl = open("data.yml", "w")
@@ -37,6 +53,7 @@ if n > 0:
 		
 		if "(" in pre:
 			sc, tp = pre.split("(")
+			tp = tp.split(")")[0]
 			fl.write('  - score: ' + sc + '\n')
 			if tp != "mul" and tp != "min" and tp != "max" and tp != "sum":
 				print("Type Error!")
