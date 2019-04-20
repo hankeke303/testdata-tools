@@ -8,16 +8,19 @@ def ssmake(s):
 def mkstring(s):
 	return '\'' + s + '\''
 
+def clearstring(s):
+	return s.replace('__FSDR_ACA__HYZX__YQL__HKK___', '-')
+
 def getList(s):
 	global lleft
 	p = s.split(',')
 	ls = list()
 	for i in p:
 		i = i.replace(' ', '')
+		i = i.replace('\\-', '__FSDR_ACA__HYZX__YQL__HKK___')
 		if '-' in i:
 			if '(' in i:
 				lleft, rright = i.split('(')
-				lleft = lleft.replace('\\-', '-')
 				rright = rright[:-1]
 				l, r = map(int, rright.split('-'))
 				ls += map(ssmake, range(l, r + 1))
@@ -26,6 +29,8 @@ def getList(s):
 				ls += map(str, list(range(l, r + 1)))
 		else:
 			ls.append(i)
+	print(ls)
+	ls = list(map(clearstring, ls))
 	return ls
 
 fl = open("data.yml", "w")
