@@ -29,7 +29,6 @@ def getList(s):
 				ls += map(str, list(range(l, r + 1)))
 		else:
 			ls.append(i)
-	print(ls)
 	ls = list(map(clearstring, ls))
 	return ls
 
